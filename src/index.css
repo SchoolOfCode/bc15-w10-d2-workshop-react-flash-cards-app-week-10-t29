@@ -35,6 +35,7 @@ input {
   width: 200px;
   margin: 0 20px;
   padding: 5px 0;
+  border: 0;
 }
 
 button {
@@ -52,6 +53,7 @@ label {
 
 button {
   margin-left: 10px;
+  border: 0;
 }
 
 /* section {
@@ -98,4 +100,11 @@ section {
 
 .footerpic {
   padding: 10px 5px;
+}
+
+.deleteButton {
+  background-color: #323949;
+  color: red;
+  border: 0;
+  
 }
