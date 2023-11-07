@@ -57,13 +57,46 @@ button {
   margin-left: 10px;
 }
 
-section {
+/* section {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fill, 250px);
-  background-color: #232731;
-}
+
+} */
 
 p {
   margin-top: 0px;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #232731;
+}
+
+.flashcard {
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #323949;
+  color: white;
+  border-radius: 5px;
+}
+
+.footer {
+  place-items: center;
+  background-color: #17191F;
+  color: white;
+  padding-bottom: 3px;
+  display: flex;
+  justify-content: center;
+}
+
+.footerpic {
+padding: 10px 5px;
 }

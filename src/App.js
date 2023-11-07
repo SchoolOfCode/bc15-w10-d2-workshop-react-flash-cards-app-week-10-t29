@@ -6,7 +6,7 @@ function App() {
       <Header />
       <Form />
       <Flashcards />
-      <Flashcard />
+      {/* <Flashcard /> */}
       <Footer />
     </>
   );
@@ -89,11 +89,13 @@ function Form() {
   );
 }
 
+
 function Flashcards() {
+  console.log(initialFlashcards);
   return (
     <section>
       {initialFlashcards.map((flashcard) => (
-        <Flashcard {...flashcard} />
+         <Flashcard key={flashcard.id} {...flashcard} />
       ))}
     </section>
   );
@@ -101,9 +103,9 @@ function Flashcards() {
 
 function Flashcard({ id, question }) {
   return (
-    <div className="flashcard" key={id}>
-      <p>🤔</p>
-      <p>{question}</p>
+    <div className="flashcard">
+      {<p>🤔</p>}
+      {<p>{question}</p>}
     </div>
   );
 }
@@ -112,7 +114,7 @@ function Footer() {
   return (
     <div className="footer">
       <p>Built with React</p>
-      <img src="logo192.png" alt="logo" width="25px" />
+      <img src="logo192.png" alt="logo" width="25px" className="footerpic"/>
     </div>
   );
 }
