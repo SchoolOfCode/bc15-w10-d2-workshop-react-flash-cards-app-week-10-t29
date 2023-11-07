@@ -12,61 +12,60 @@ function App() {
   );
 }
 
-
 const initialFlashcards = [
   {
-    "id": "1",
-    "question": "What does JSX stand for?",
-    "answer": "Javascript XML"
+    id: "1",
+    question: "What does JSX stand for?",
+    answer: "Javascript XML",
   },
   {
-    "id": "2",
-    "question": "What are the four stages of a component Life Cycle",
-    "answer": "Intialization, Mount, Update, Unmount"
+    id: "2",
+    question: "What are the four stages of a component Life Cycle",
+    answer: "Intialization, Mount, Update, Unmount",
   },
   {
-    "id": "3",
-    "question": "What single page applications",
-    "answer": "one page/template but updating using DOM"
+    id: "3",
+    question: "What single page applications",
+    answer: "one page/template but updating using DOM",
   },
   {
-    "id": "4",
-    "question": "What is the syntax for event listeners",
-    "answer": "<element onClick={handleClick}></element>"
+    id: "4",
+    question: "What is the syntax for event listeners",
+    answer: "<element onClick={handleClick}></element>",
   },
   {
-      "id": "5",
-      "question": "What is a component",
-      "answer": "A function or class which returns that returns some HTML "
+    id: "5",
+    question: "What is a component",
+    answer: "A function or class which returns that returns some HTML ",
   },
   {
-      "id": "6",
-      "question": "In JSX how do you define a class?",
-      "answer": "classname = "
+    id: "6",
+    question: "In JSX how do you define a class?",
+    answer: "classname = ",
   },
   {
-      "id": "7",
-      "question": "What is prop drilling?",
-      "answer": "Parent component passing data down to children and then they pass down to their children"
+    id: "7",
+    question: "What is prop drilling?",
+    answer:
+      "Parent component passing data down to children and then they pass down to their children",
   },
   {
-      "id": "8",
-      "question": "What is useEffect()?",
-      "answer": "Perform side effects in lifecycle"
+    id: "8",
+    question: "What is useEffect()?",
+    answer: "Perform side effects in lifecycle",
   },
   {
-      "id": "9",
-      "question": "What are hooks?",
-      "answer": "They let you use state and other react features without writing a class"
+    id: "9",
+    question: "What are hooks?",
+    answer:
+      "They let you use state and other react features without writing a class",
   },
   {
-      "id": "10",
-      "question": "What does useState() do?",
-      "answer": "Set and update state"
-  }
+    id: "10",
+    question: "What does useState() do?",
+    answer: "Set and update state",
+  },
 ];
-
-
 
 function Header() {
   return (
@@ -80,7 +79,7 @@ function Header() {
 
 function Form() {
   return (
-    <form>
+    <form className="form">
       <label for="question">Question: </label>
       <input type="text" />
       <label for="answer">Answer: </label>
@@ -101,22 +100,21 @@ function Flashcards() {
 }
 
 function Flashcard({ id, question }) {
-    return (
-      <div className="flashcard" key={id}>
-        <p>🤔</p>
-        <p>{question}</p>
-      </div>
-    );
-  }
+  return (
+    <div className="flashcard" key={id}>
+      <p>🤔</p>
+      <p>{question}</p>
+    </div>
+  );
+}
 
 function Footer() {
   return (
     <div className="footer">
-    <p>Built with React</p> 
+      <p>Built with React</p>
       <img src="logo192.png" alt="logo" width="25px" />
-      </div>
+    </div>
   );
 }
-
 
 export default App;
