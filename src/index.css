@@ -15,7 +15,7 @@ code {
 header {
   display: grid;
   place-items: center;
-  background-color: black;
+  background-color: #17191F;
   color: white;
   padding-bottom: 3px;
 }
@@ -26,11 +26,27 @@ h1 {
 }
 
 .form {
-  background-color: gray;
-  padding: 10px 0;
+  background-color: #232731;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
+  color: white;;
 }
+
+input {
+  background-color: #2F323C;
+  border-radius: 5px;
+  
+}
+
+button {
+  background-color: #06B1DF;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
 
 label {
   margin-left: 10px;
@@ -39,4 +55,15 @@ label {
 
 button {
   margin-left: 10px;
+}
+
+section {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 250px);
+  background-color: #232731;
+}
+
+p {
+  margin-top: 0px;
 }
