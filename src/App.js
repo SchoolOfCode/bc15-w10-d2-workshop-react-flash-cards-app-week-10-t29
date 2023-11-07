@@ -72,7 +72,7 @@ function Header() {
     <header>
       <img src="logo192.png" alt="logo" width="50px" />
       <h1>React Flashcards</h1>
-      <p>🧠 Expand Your React Knowledge, One Flashcard at a Time!🐌</p>
+      <p>🧠 Expand Your React Knowledge, One Flashcard at a Time! 🐌</p>
     </header>
   );
 }
@@ -89,13 +89,12 @@ function Form() {
   );
 }
 
-
 function Flashcards() {
   console.log(initialFlashcards);
   return (
     <section>
       {initialFlashcards.map((flashcard) => (
-         <Flashcard key={flashcard.id} {...flashcard} />
+        <Flashcard key={flashcard.id} {...flashcard} />
       ))}
     </section>
   );
@@ -114,7 +113,7 @@ function Footer() {
   return (
     <div className="footer">
       <p>Built with React</p>
-      <img src="logo192.png" alt="logo" width="25px" className="footerpic"/>
+      <img src="logo192.png" alt="logo" width="20px" className="footerpic" />
     </div>
   );
 }

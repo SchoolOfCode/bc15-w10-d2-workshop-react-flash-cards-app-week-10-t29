@@ -15,14 +15,9 @@ code {
 header {
   display: grid;
   place-items: center;
-  background-color: #17191F;
+  background-color: #17191f;
   color: white;
-  padding-bottom: 3px;
-}
-
-h1 {
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding: 20px 0;
 }
 
 .form {
@@ -30,23 +25,25 @@ h1 {
   padding: 20px 0;
   display: flex;
   justify-content: center;
-  color: white;;
+  align-items: center;
+  color: white;
 }
 
 input {
-  background-color: #2F323C;
+  background-color: #2f323c;
   border-radius: 5px;
-  
+  width: 200px;
+  margin: 0 20px;
+  padding: 5px 0;
 }
 
 button {
-  background-color: #06B1DF;
+  background-color: #06b1df;
   color: white;
   font-weight: bold;
   border-radius: 5px;
   padding: 5px 15px;
 }
-
 
 label {
   margin-left: 10px;
@@ -65,20 +62,22 @@ button {
 } */
 
 p {
-  margin-top: 0px;
+  margin: 0px;
 }
 
 section {
   display: flex;
   flex-wrap: wrap;
   background-color: #232731;
+  padding-left: 4vw;
 }
 
 .flashcard {
   width: 300px;
   height: 200px;
+  /* margin: 10px auto; */
   margin: 10px;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,7 +89,7 @@ section {
 
 .footer {
   place-items: center;
-  background-color: #17191F;
+  background-color: #17191f;
   color: white;
   padding-bottom: 3px;
   display: flex;
@@ -98,5 +97,5 @@ section {
 }
 
 .footerpic {
-padding: 10px 5px;
+  padding: 10px 5px;
 }
