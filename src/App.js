@@ -13,7 +13,7 @@ function App() {
 function Header() {
   return (
     <header>
-      <img src="./public/logo512.png" alt="logo"/>
+      <img src="logo512.png" alt="logo"/>
       <h1>React Flashcards</h1>
       <p>🧠 Expand Your React Knowledge, One Flashcard at a Time!🐌</p>
     </header>
