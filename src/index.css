@@ -25,8 +25,18 @@ h1 {
   margin-bottom: 0px;
 }
 
-form {
+.form {
   background-color: gray;
-  padding: 100px, 0;
-  margin: 100px, 0;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+button {
+  margin-left: 10px;
 }
