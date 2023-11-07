@@ -96,20 +96,17 @@ function Flashcards() {
       {initialFlashcards.map((flashcard) => (
         <Flashcard key={flashcard.id} {...flashcard} />
       ))}
-
     </section>
   );
 }
 
 function Flashcard({ id, question }) {
-  return (<>
-    <div class="button">
-    {<button className="deleteButton">X</button>}
-    </div>
+  return (
     <div className="flashcard">
-      {<p>🤔</p>}
-      {<p>{question}</p>}
-    </div> </>
+      <button className="deleteButton">X</button>
+      <p className="thinking">🤔</p>
+      <p className="question">{question}</p>
+    </div>
   );
 }
 

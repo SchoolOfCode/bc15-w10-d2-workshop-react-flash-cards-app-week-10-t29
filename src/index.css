@@ -106,5 +106,17 @@ section {
   background-color: #323949;
   color: red;
   border: 0;
-  
+  margin-left: auto;
+  height: 20px;
+}
+
+.thinking {
+  height: 80px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.question {
+  height: 100px;
 }
