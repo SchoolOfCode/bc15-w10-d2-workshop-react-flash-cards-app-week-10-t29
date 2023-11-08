@@ -103,7 +103,7 @@ function Flashcards() {
 function Flashcard({ id, question }) {
   return (
     <div className="flashcard">
-      <button className="deleteButton">X</button>
+      <button className="deleteButton">❌</button>
       <p className="thinking">🤔</p>
       <p className="question">{question}</p>
     </div>
