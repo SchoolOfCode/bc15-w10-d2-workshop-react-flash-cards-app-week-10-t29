@@ -8,28 +8,6 @@ import { useCallback, useState } from "react";
 */
 
 function App() {
-//   const [change, setChange] = useState(questions);
-
-//   function handleChange = useCallback(() => {
-//     // setChange((prevChange) =>
-//     //   prevChange === true ? (change = false) : (change = true)
-//     // );
-//     const answers = 
-
-//   }
-//   )
-//   // function App() {
-//   //   const [recipes, setRecipes] = useState(sampleRecipes);
-  
-//   //   const handleRecipeAdd = useCallback(() => {
-//   //     const newRecipe = // some logic to create newRecipe here
-//   //     setRecipes(recipes => {
-//   //         return [...recipes, newRecipe];
-//   //     });
-//   //   }, [setRecipes]);
-  
-//   //   return <RecipeList recipes={recipes} handleRecipeAdd={handleRecipeAdd} />;
-//   // }
 
   return (
     <>
@@ -131,20 +109,31 @@ function Flashcards() {
   );
 }
 
-function Flashcard({ id, question, answer}) {
+function Flashcard({ id, question, answer }) {
   const [change, setChange] = useState(true)
 
-  function changeCard(){
-      setChange((prevChange) => prevChange ? false : true);
-    }
+  function changeCard() {
+    setChange((prevChange) => prevChange ? false : true);
+  }
 
+  function removeCard(id) {
+    let updatedFlashcards = initialFlashcards.splice(id, 1)
+      return updatedFlashcards.map()
+   
+  // console.log("Hi")
+  // console.log(id)
+  // Flashcards()
+};
+  
   return ( 
+    <div> <button className="deleteButton" onClick={removeCard(id)}>❌</button> 
     <div className="flashcard" onClick={changeCard}>
-      <button className="deleteButton">❌</button>
+      
       <p className="thinking">🤔</p>
       {change ? (<p className="question">{question}</p>) 
       : (<p className="question">{answer}</p>)}
-    </div> );
+  </div>
+    </div > );
 
 }
 
