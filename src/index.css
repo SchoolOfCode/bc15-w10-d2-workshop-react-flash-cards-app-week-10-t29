@@ -75,7 +75,7 @@ section {
   padding-left: 4vw;
 }
 
-.flashcard {
+.information {
   width: 300px;
   height: 200px;
   /* margin: 10px auto; */
@@ -88,6 +88,13 @@ section {
   background-color: #323949;
   color: white;
   border-radius: 5px;
+}
+
+.flashcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
@@ -111,13 +118,19 @@ section {
   height: 20px;
 }
 
-.thinking {
+.emoji {
   height: 80px;
+  font-size: 3rem;
   margin: auto;
   display: flex;
   align-items: center;
 }
 
-.question {
+.text {
   height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

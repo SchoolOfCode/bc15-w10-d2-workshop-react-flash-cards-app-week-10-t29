@@ -22,7 +22,7 @@ const initialFlashcards = [
   },
   {
     id: "3",
-    question: "What single page applications",
+    question: "What are single page applications",
     answer: "one page/template but updating using DOM",
   },
   {
@@ -153,22 +153,30 @@ function Flashcards({ flashcards, removeCard }) {
 
 function Flashcard({ flashcard, removeCard }) {
   const [change, setChange] = useState(true);
+  const [boxColor, setBoxColor] = useState("#323949");
 
   function changeCard() {
     setChange((prevChange) => (prevChange ? false : true));
+    setBoxColor((prevBoxColor) =>
+      prevBoxColor === "#323949" ? "skyblue" : "#323949"
+    );
   }
 
   return (
-    <div>
-      <button className="deleteButton" onClick={() => removeCard(flashcard.id)}>
+    <div className="information" style={{ backgroundColor: boxColor }}>
+      <button
+        className="deleteButton"
+        style={{ backgroundColor: boxColor }}
+        onClick={() => removeCard(flashcard.id)}
+      >
         ❌
       </button>
       <div className="flashcard" onClick={changeCard}>
-        <p className="thinking">🤔</p>
+        {change ? <p className="emoji">🤔</p> : <p className="emoji">🤯</p>}
         {change ? (
-          <p className="question">{flashcard.question}</p>
+          <p className="text">{flashcard.question}</p>
         ) : (
-          <p className="question">{flashcard.answer}</p>
+          <p className="text">{flashcard.answer}</p>
         )}
       </div>
     </div>
