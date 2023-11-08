@@ -113,17 +113,20 @@ function Flashcard({ id, question, answer }) {
 
   function changeCard() {
     setChange((prevChange) => (prevChange ? false : true));
+    console.log(id)
   }
 
   function removeCard(id) {
     // let updatedFlashcards = initialFlashcards.splice(id, 1);
     const updatedFlashcards = initialFlashcards.filter(
-      (id) => id !== initialFlashcards.id
+      (id) => id !== id
+    
     );
+    console.log(id)
     // return updatedFlashcards.map()
     console.log("clicked");
 
-    console.log(initialFlashcards.id);
+    console.log(Flashcard.id);
     console.log(updatedFlashcards);
     // return (
     //   <section>
