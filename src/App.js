@@ -8,7 +8,6 @@ import { useCallback, useState } from "react";
 */
 
 function App() {
-
   return (
     <>
       <Header />
@@ -110,31 +109,51 @@ function Flashcards() {
 }
 
 function Flashcard({ id, question, answer }) {
-  const [change, setChange] = useState(true)
+  const [change, setChange] = useState(true);
 
   function changeCard() {
-    setChange((prevChange) => prevChange ? false : true);
+    setChange((prevChange) => (prevChange ? false : true));
   }
 
   function removeCard(id) {
-    let updatedFlashcards = initialFlashcards.splice(id, 1)
-      return updatedFlashcards.map()
-   
-  // console.log("Hi")
-  // console.log(id)
-  // Flashcards()
-};
-  
-  return ( 
-    <div> <button className="deleteButton" onClick={removeCard(id)}>❌</button> 
-    <div className="flashcard" onClick={changeCard}>
-      
-      <p className="thinking">🤔</p>
-      {change ? (<p className="question">{question}</p>) 
-      : (<p className="question">{answer}</p>)}
-  </div>
-    </div > );
+    // let updatedFlashcards = initialFlashcards.splice(id, 1);
+    const updatedFlashcards = initialFlashcards.filter(
+      (id) => id !== initialFlashcards.id
+    );
+    // return updatedFlashcards.map()
+    console.log("clicked");
 
+    console.log(initialFlashcards.id);
+    console.log(updatedFlashcards);
+    // return (
+    //   <section>
+    //     {updatedFlashcards.map((flashcard) => (
+    //       <Flashcard key={flashcard.id} {...flashcard} />
+    //     ))}
+    //   </section>
+    // );
+
+    // console.log("Hi")
+    // console.log(id)
+    // Flashcards()
+  }
+
+  return (
+    <div>
+      {" "}
+      <button className="deleteButton" onClick={removeCard}>
+        ❌
+      </button>
+      <div className="flashcard" onClick={changeCard}>
+        <p className="thinking">🤔</p>
+        {change ? (
+          <p className="question">{question}</p>
+        ) : (
+          <p className="question">{answer}</p>
+        )}
+      </div>
+    </div>
+  );
 }
 
 function Footer() {
