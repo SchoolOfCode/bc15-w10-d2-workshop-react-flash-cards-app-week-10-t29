@@ -7,19 +7,6 @@ import { useCallback, useState } from "react";
 - pass down function to flashcards
 */
 
-function App() {
-  return (
-    <>
-      <Header />
-      <Form />
-      <Flashcards initialFlashcards={initialFlashcards} />
-      {/* // handleChange={handleChange} />
-      <Flashcard /> */}
-      <Footer />
-    </>
-  );
-}
-
 const initialFlashcards = [
   {
     id: "1",
@@ -75,6 +62,28 @@ const initialFlashcards = [
   },
 ];
 
+function App() {
+  const [flashcards, setFlashcards] = useState(initialFlashcards);
+
+  function removeCard(id) {
+    const updatedFlashcards = flashcards.filter(
+      (flashcard) => flashcard.id !== id
+    );
+    setFlashcards(updatedFlashcards);
+  }
+
+  return (
+    <>
+      <Header />
+      <Form />
+      <Flashcards removeCard={removeCard} flashcards={flashcards} />
+      {/* // handleChange={handleChange} />
+      <Flashcard /> */}
+      <Footer />
+    </>
+  );
+}
+
 function Header() {
   return (
     <header>
@@ -97,17 +106,7 @@ function Form() {
   );
 }
 
-function Flashcards({ initialFlashcards }) {
-  console.log(initialFlashcards);
-  const [flashcards, setFlashcards] = useState(initialFlashcards);
-
-  function removeCard(id) {
-    const updatedFlashcards = flashcards.filter(
-      (flashcard) => flashcard.id !== id
-    );
-    setFlashcards(updatedFlashcards);
-  }
-
+function Flashcards({ flashcards, removeCard }) {
   return (
     <section>
       {flashcards.map((flashcard) => (
