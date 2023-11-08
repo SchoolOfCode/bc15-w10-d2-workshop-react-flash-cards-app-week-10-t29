@@ -12,7 +12,7 @@ function App() {
     <>
       <Header />
       <Form />
-      <Flashcards />
+      <Flashcards initialFlashcards={initialFlashcards} />
       {/* // handleChange={handleChange} />
       <Flashcard /> */}
       <Footer />
@@ -97,62 +97,48 @@ function Form() {
   );
 }
 
-function Flashcards() {
+function Flashcards({ initialFlashcards }) {
   console.log(initialFlashcards);
+  const [flashcards, setFlashcards] = useState(initialFlashcards);
+
+  function removeCard(id) {
+    const updatedFlashcards = flashcards.filter(
+      (flashcard) => flashcard.id !== id
+    );
+    setFlashcards(updatedFlashcards);
+  }
+
   return (
     <section>
-      {initialFlashcards.map((flashcard) => (
-        <Flashcard key={flashcard.id} {...flashcard} />
+      {flashcards.map((flashcard) => (
+        <Flashcard
+          key={flashcard.id}
+          flashcard={flashcard}
+          removeCard={removeCard}
+        />
       ))}
     </section>
   );
 }
 
-function Flashcard({ id, question, answer }) {
+function Flashcard({ flashcard, removeCard }) {
   const [change, setChange] = useState(true);
 
   function changeCard() {
     setChange((prevChange) => (prevChange ? false : true));
-    console.log(id)
-  }
-
-  function removeCard(id) {
-    // let updatedFlashcards = initialFlashcards.splice(id, 1);
-    const updatedFlashcards = initialFlashcards.filter(
-      (id) => id !== id
-    
-    );
-    console.log(id)
-    // return updatedFlashcards.map()
-    console.log("clicked");
-
-    console.log(Flashcard.id);
-    console.log(updatedFlashcards);
-    // return (
-    //   <section>
-    //     {updatedFlashcards.map((flashcard) => (
-    //       <Flashcard key={flashcard.id} {...flashcard} />
-    //     ))}
-    //   </section>
-    // );
-
-    // console.log("Hi")
-    // console.log(id)
-    // Flashcards()
   }
 
   return (
     <div>
-      {" "}
-      <button className="deleteButton" onClick={removeCard}>
+      <button className="deleteButton" onClick={() => removeCard(flashcard.id)}>
         ❌
       </button>
       <div className="flashcard" onClick={changeCard}>
         <p className="thinking">🤔</p>
         {change ? (
-          <p className="question">{question}</p>
+          <p className="question">{flashcard.question}</p>
         ) : (
-          <p className="question">{answer}</p>
+          <p className="question">{flashcard.answer}</p>
         )}
       </div>
     </div>
