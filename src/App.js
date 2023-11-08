@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 /* Things we need
 - function to handle condition - either on question or on answer
@@ -8,20 +8,36 @@ import { useState } from "react";
 */
 
 function App() {
-  const [change, setChange] = useState(true);
+//   const [change, setChange] = useState(questions);
 
-  function handleChange(e) {
-    // setChange((prevChange) =>
-    //   prevChange === true ? (change = false) : (change = true)
-    // );
-  }
+//   function handleChange = useCallback(() => {
+//     // setChange((prevChange) =>
+//     //   prevChange === true ? (change = false) : (change = true)
+//     // );
+//     const answers = 
+
+//   }
+//   )
+//   // function App() {
+//   //   const [recipes, setRecipes] = useState(sampleRecipes);
+  
+//   //   const handleRecipeAdd = useCallback(() => {
+//   //     const newRecipe = // some logic to create newRecipe here
+//   //     setRecipes(recipes => {
+//   //         return [...recipes, newRecipe];
+//   //     });
+//   //   }, [setRecipes]);
+  
+//   //   return <RecipeList recipes={recipes} handleRecipeAdd={handleRecipeAdd} />;
+//   // }
 
   return (
     <>
       <Header />
       <Form />
-      <Flashcards handleChange={handleChange} />
-      {/* <Flashcard /> */}
+      <Flashcards />
+      {/* // handleChange={handleChange} />
+      <Flashcard /> */}
       <Footer />
     </>
   );
@@ -115,14 +131,21 @@ function Flashcards() {
   );
 }
 
-function Flashcard({ id, question, change, handleChange }) {
-  return (
-    <div className="flashcard" value={change} onClick={handleChange}>
+function Flashcard({ id, question, answer}) {
+  const [change, setChange] = useState(true)
+
+  function changeCard(){
+      setChange((prevChange) => prevChange ? false : true);
+    }
+
+  return ( 
+    <div className="flashcard" onClick={changeCard}>
       <button className="deleteButton">❌</button>
       <p className="thinking">🤔</p>
-      <p className="question">{question}</p>
-    </div>
-  );
+      {change ? (<p className="question">{question}</p>) 
+      : (<p className="question">{answer}</p>)}
+    </div> );
+
 }
 
 function Footer() {
