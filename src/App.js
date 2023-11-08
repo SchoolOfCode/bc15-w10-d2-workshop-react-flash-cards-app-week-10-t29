@@ -1,6 +1,13 @@
 import logo from "./logo.svg";
+import { useState } from "react";
 
 function App() {
+  const [change, setChange] = useState(true)
+
+  function handleChange(e) {
+    setChange(e.change);
+  }
+
   return (
     <>
       <Header />
@@ -102,9 +109,9 @@ function Flashcards() {
 
 function Flashcard({ id, question }) {
   return (
-    <div className="flashcard">
+    <div className="flashcard" value={change} onClick={handleChange}>
       <button className="deleteButton">❌</button>
-      <p className="thinking">🤔</p>
+      <p className="thinking" >🤔</p>
       <p className="question">{question}</p>
     </div>
   );
