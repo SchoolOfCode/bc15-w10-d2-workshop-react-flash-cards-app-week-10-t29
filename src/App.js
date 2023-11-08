@@ -1,18 +1,26 @@
 import logo from "./logo.svg";
 import { useState } from "react";
 
+/* Things we need
+- function to handle condition - either on question or on answer
+- new function? to change to answer or question
+- pass down function to flashcards
+*/
+
 function App() {
-  const [change, setChange] = useState(true)
+  const [change, setChange] = useState(true);
 
   function handleChange(e) {
-    setChange(e.change);
+    // setChange((prevChange) =>
+    //   prevChange === true ? (change = false) : (change = true)
+    // );
   }
 
   return (
     <>
       <Header />
       <Form />
-      <Flashcards />
+      <Flashcards handleChange={handleChange} />
       {/* <Flashcard /> */}
       <Footer />
     </>
@@ -107,11 +115,11 @@ function Flashcards() {
   );
 }
 
-function Flashcard({ id, question }) {
+function Flashcard({ id, question, change, handleChange }) {
   return (
     <div className="flashcard" value={change} onClick={handleChange}>
       <button className="deleteButton">❌</button>
-      <p className="thinking" >🤔</p>
+      <p className="thinking">🤔</p>
       <p className="question">{question}</p>
     </div>
   );
