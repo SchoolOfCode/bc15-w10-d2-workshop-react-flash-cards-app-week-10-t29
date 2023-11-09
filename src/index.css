@@ -134,3 +134,10 @@ section {
   justify-content: center;
   text-align: center;
 }
+
+.noFlashcard {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem;
+  color: white;
+}

@@ -85,7 +85,7 @@ function App() {
       <Flashcards removeCard={removeCard} flashcards={flashcards} />
       {/* // handleChange={handleChange} />
       <Flashcard /> */}
-      <Footer />
+      <Footer flashcards={flashcards} />
     </>
   );
 }
@@ -140,13 +140,20 @@ function Form({ addCard }) {
 function Flashcards({ flashcards, removeCard }) {
   return (
     <section>
-      {flashcards.map((flashcard) => (
-        <Flashcard
-          key={flashcard.id}
-          flashcard={flashcard}
-          removeCard={removeCard}
-        />
-      ))}
+      {flashcards.length > 0 ? (
+        flashcards.map((flashcard) => (
+          <Flashcard
+            key={flashcard.id}
+            flashcard={flashcard}
+            removeCard={removeCard}
+          />
+        ))
+      ) : (
+        <p className="noFlashcard">
+          You haven't added any flashcards yet! Start creating your learning
+          set.
+        </p>
+      )}
     </section>
   );
 }
@@ -183,9 +190,10 @@ function Flashcard({ flashcard, removeCard }) {
   );
 }
 
-function Footer() {
+function Footer({ flashcards }) {
   return (
     <div className="footer">
+      <p>You have added {flashcards.length}flashcards</p>
       <p>Built with React</p>
       <img src="logo192.png" alt="logo" width="20px" className="footerpic" />
     </div>
