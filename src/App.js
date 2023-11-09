@@ -50,8 +50,6 @@ function App() {
         flashcards={flashcards}
         editCard={editCard}
       />
-      {/* // handleChange={handleChange} />
-      <Flashcard /> */}
       <NumFlashcards flashcards={flashcards} />
       <Footer />
     </>
