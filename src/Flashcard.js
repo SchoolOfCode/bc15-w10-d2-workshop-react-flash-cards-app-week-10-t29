@@ -53,7 +53,15 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
             >
               Edit
             </button>
-            <button className="difficulty">Difficulty</button>
+            <div>
+              <label for="difficuly"></label>
+              <select name="difficulty">
+                <option>Select Difficulty</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
             <button
               className="deleteButton"
               style={{ backgroundColor: boxColor }}
