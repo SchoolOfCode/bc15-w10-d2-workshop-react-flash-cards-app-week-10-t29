@@ -74,6 +74,18 @@ function App() {
     setFlashcards(updatedFlashcards);
   }
 
+  function editCard(updatedFlashcard) {
+    console.log("does this work?");
+    const updatedFlashcards = flashcards.map((flashcard) => {
+      if (flashcard.id === updatedFlashcard.id) {
+        return updatedFlashcard;
+      }
+      return flashcard;
+    });
+    console.log(updatedFlashcards);
+    setFlashcards(updatedFlashcards);
+  }
+
   function addCard(newFlashcard) {
     setFlashcards((prevFlashcards) => [...prevFlashcards, newFlashcard]);
   }
@@ -82,7 +94,11 @@ function App() {
     <>
       <Header />
       <Form addCard={addCard} />
-      <Flashcards removeCard={removeCard} flashcards={flashcards} />
+      <Flashcards
+        removeCard={removeCard}
+        flashcards={flashcards}
+        editCard={editCard}
+      />
       {/* // handleChange={handleChange} />
       <Flashcard /> */}
       <NumFlashcards flashcards={flashcards} />
@@ -138,7 +154,7 @@ function Form({ addCard }) {
   );
 }
 
-function Flashcards({ flashcards, removeCard }) {
+function Flashcards({ flashcards, removeCard, editCard }) {
   return (
     <section>
       {flashcards.length > 0 ? (
@@ -147,6 +163,7 @@ function Flashcards({ flashcards, removeCard }) {
             key={flashcard.id}
             flashcard={flashcard}
             removeCard={removeCard}
+            editCard={editCard}
           />
         ))
       ) : (
@@ -159,7 +176,7 @@ function Flashcards({ flashcards, removeCard }) {
   );
 }
 
-function Flashcard({ flashcard, removeCard }) {
+function Flashcard({ flashcard, removeCard, editCard }) {
   const [change, setChange] = useState(true);
   const [edit, setEdit] = useState(true);
   const [boxColor, setBoxColor] = useState("#323949");
@@ -195,10 +212,9 @@ function Flashcard({ flashcard, removeCard }) {
     // addCard(newFlashcard);
     // setQuestion("");
     // setAnswer("");
-    editCard();
+    editCard(newFlashcard);
+    editCardContainer();
   }
-
-  function editCard() {}
 
   return (
     <>
@@ -230,7 +246,7 @@ function Flashcard({ flashcard, removeCard }) {
         </div>
       ) : (
         <div className="information" style={{ backgroundColor: "#323949" }}>
-          <form className="form" onSubmit={clickEditButton}>
+          <form className="editForm" onSubmit={clickEditButton}>
             <label for="question">Question: </label>
             <input
               type="text"
@@ -239,7 +255,7 @@ function Flashcard({ flashcard, removeCard }) {
             />
             <label for="answer">Answer: </label>
             <input type="text" value={editAnswer} onChange={handleEditAnswer} />
-            <button type="submit">Add</button>
+            <button type="submit">Edit</button>
           </form>
         </div>
       )}
