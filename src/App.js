@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import { useState } from "react";
 import initialFlashcards from "./flashcards.json";
 import Header from "./Header.js";
+import SelectFlashcards from "./Select.js";
 import Form from "./Form.js";
 import Flashcards from "./Flashcards.js";
 import NumFlashcards from "./NumFlashcards.js";
@@ -22,6 +23,7 @@ function App() {
     const updatedFlashcards = flashcards.filter(
       (flashcard) => flashcard.id !== idToDelete
     );
+
     setFlashcards(updatedFlashcards);
   }
 
@@ -34,6 +36,7 @@ function App() {
       return flashcard;
     });
     // console.log(updatedFlashcards);
+
     setFlashcards(updatedFlashcards);
   }
 
@@ -41,9 +44,17 @@ function App() {
     setFlashcards((prevFlashcards) => [...prevFlashcards, newFlashcard]);
   }
 
+  function sortByDifficulty(difficultyValue) {
+    const updatedFlashcards = flashcards.filter(
+      (flashcard) => flashcard.difficulty === difficultyValue
+    );
+    setFlashcards(updatedFlashcards);
+  }
+
   return (
     <>
       <Header />
+      <SelectFlashcards sortByDifficulty={sortByDifficulty} />
       <Form addCard={addCard} />
       <Flashcards
         removeCard={removeCard}

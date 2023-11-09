@@ -6,6 +6,7 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
   const [boxColor, setBoxColor] = useState("#323949");
   const [editQuestion, setEditQuestion] = useState(flashcard.question);
   const [editAnswer, setEditAnswer] = useState(flashcard.answer);
+  const [boxBorderColor, setBoxBorderColor] = useState("#323949");
 
   function changeCard() {
     setChange((prevChange) => (prevChange ? false : true));
@@ -32,6 +33,7 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
       id: flashcard.id,
       question: editQuestion,
       answer: editAnswer,
+      difficulty: flashcard.difficulty,
     };
     // addCard(newFlashcard);
     // setQuestion("");
@@ -40,11 +42,37 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
     editCardContainer();
   }
 
+  function handleDropdownChange(event) {
+    const difficulty = event.target.value;
+
+    if (difficulty === "None") setBoxBorderColor("#323949");
+    if (difficulty === "Easy") setBoxBorderColor("green");
+    if (difficulty === "Medium") setBoxBorderColor("orange");
+    if (difficulty === "Hard") setBoxBorderColor("red");
+    console.log(event.target);
+    console.log(flashcard.id);
+
+    const newFlashcard = {
+      id: flashcard.id,
+      question: flashcard.question,
+      answer: flashcard.answer,
+      difficulty: difficulty,
+    };
+
+    // addCard(newFlashcard);
+    // setQuestion("");
+    // setAnswer("");
+    editCard(newFlashcard);
+  }
+
   return (
     <>
       <div
         className={edit ? "information" : "information hidden"}
-        style={{ backgroundColor: boxColor }}
+        style={{
+          backgroundColor: boxColor,
+          border: `thick solid ${boxBorderColor}`,
+        }}
       >
         <div className="buttonContainer">
           <button
@@ -56,8 +84,8 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
           </button>
           <div>
             <label for="difficuly"></label>
-            <select name="difficulty">
-              <option>Select Difficulty</option>
+            <select name="difficulty" onChange={handleDropdownChange}>
+              <option value="None">Select Difficulty</option>
               <option value="Easy">Easy</option>
               <option value="Medium">Medium</option>
               <option value="Hard">Hard</option>
