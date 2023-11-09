@@ -18,22 +18,22 @@ import Footer from "./Footer.js";
 function App() {
   const [flashcards, setFlashcards] = useState(initialFlashcards);
 
-  function removeCard(id) {
+  function removeCard(idToDelete) {
     const updatedFlashcards = flashcards.filter(
-      (flashcard) => flashcard.id !== id
+      (flashcard) => flashcard.id !== idToDelete
     );
     setFlashcards(updatedFlashcards);
   }
 
-  function editCard(updatedFlashcard) {
-    console.log("does this work?");
+  function editCard(editedFlashcard) {
+    // console.log("does this work?");
     const updatedFlashcards = flashcards.map((flashcard) => {
-      if (flashcard.id === updatedFlashcard.id) {
-        return updatedFlashcard;
+      if (flashcard.id === editedFlashcard.id) {
+        return editedFlashcard;
       }
       return flashcard;
     });
-    console.log(updatedFlashcards);
+    // console.log(updatedFlashcards);
     setFlashcards(updatedFlashcards);
   }
 
