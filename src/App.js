@@ -85,7 +85,8 @@ function App() {
       <Flashcards removeCard={removeCard} flashcards={flashcards} />
       {/* // handleChange={handleChange} />
       <Flashcard /> */}
-      <Footer flashcards={flashcards} />
+      <NumFlashcards flashcards={flashcards} />
+      <Footer />
     </>
   );
 }
@@ -190,10 +191,17 @@ function Flashcard({ flashcard, removeCard }) {
   );
 }
 
-function Footer({ flashcards }) {
+function NumFlashcards({ flashcards }) {
+  return (
+    <p className="numFlashcards">
+      You have added {flashcards.length} flashcards
+    </p>
+  );
+}
+
+function Footer() {
   return (
     <div className="footer">
-      <p>You have added {flashcards.length}flashcards</p>
       <p>Built with React</p>
       <img src="logo192.png" alt="logo" width="20px" className="footerpic" />
     </div>
