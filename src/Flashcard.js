@@ -45,20 +45,23 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
       {" "}
       {edit ? (
         <div className="information" style={{ backgroundColor: boxColor }}>
-          <button
-            className="editButton"
-            style={{ backgroundColor: boxColor }}
-            onClick={() => editCardContainer()}
-          >
-            Edit
-          </button>
-          <button
-            className="deleteButton"
-            style={{ backgroundColor: boxColor }}
-            onClick={() => removeCard(flashcard.id)}
-          >
-            ❌
-          </button>
+          <div className="buttonContainer">
+            <button
+              className="editButton"
+              style={{ backgroundColor: boxColor }}
+              onClick={() => editCardContainer()}
+            >
+              Edit
+            </button>
+            <button className="difficulty">Difficulty</button>
+            <button
+              className="deleteButton"
+              style={{ backgroundColor: boxColor }}
+              onClick={() => removeCard(flashcard.id)}
+            >
+              ❌
+            </button>
+          </div>
           <div className="flashcard" onClick={changeCard}>
             {change ? <p className="emoji">🤔</p> : <p className="emoji">🤯</p>}
             {change ? (
