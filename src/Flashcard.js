@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-export default function Flashcard({ flashcard, removeCard, editCard }) {
+export default function Flashcard({
+  flashcard,
+  removeCard,
+  editCard,
+  difficulty,
+}) {
   const [change, setChange] = useState(true);
   const [edit, setEdit] = useState(true);
   const [boxColor, setBoxColor] = useState("#323949");
@@ -68,7 +73,12 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
   return (
     <>
       <div
-        className={edit ? "information" : "information hidden"}
+        className={
+          (edit && difficulty === flashcard.difficulty) ||
+          (edit && difficulty === "None")
+            ? "information"
+            : "information hidden"
+        }
         style={{
           backgroundColor: boxColor,
           border: `thick solid ${boxBorderColor}`,

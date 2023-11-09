@@ -1,6 +1,11 @@
 import Flashcard from "./Flashcard.js";
 
-export default function Flashcards({ flashcards, removeCard, editCard }) {
+export default function Flashcards({
+  flashcards,
+  removeCard,
+  editCard,
+  difficulty,
+}) {
   return (
     <section>
       {flashcards.length > 0 ? (
@@ -10,6 +15,7 @@ export default function Flashcards({ flashcards, removeCard, editCard }) {
             flashcard={flashcard}
             removeCard={removeCard}
             editCard={editCard}
+            difficulty={difficulty}
           />
         ))
       ) : (

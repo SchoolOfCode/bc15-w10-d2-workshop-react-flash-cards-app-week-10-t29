@@ -18,6 +18,7 @@ import Footer from "./Footer.js";
 
 function App() {
   const [flashcards, setFlashcards] = useState(initialFlashcards);
+  const [difficulty, setDifficulty] = useState("None");
 
   function removeCard(idToDelete) {
     const updatedFlashcards = flashcards.filter(
@@ -45,10 +46,7 @@ function App() {
   }
 
   function sortByDifficulty(difficultyValue) {
-    const updatedFlashcards = flashcards.filter(
-      (flashcard) => flashcard.difficulty === difficultyValue
-    );
-    setFlashcards(updatedFlashcards);
+    setDifficulty(difficultyValue);
   }
 
   return (
@@ -60,6 +58,7 @@ function App() {
         removeCard={removeCard}
         flashcards={flashcards}
         editCard={editCard}
+        difficulty={difficulty}
       />
       <NumFlashcards flashcards={flashcards} />
       <Footer />
