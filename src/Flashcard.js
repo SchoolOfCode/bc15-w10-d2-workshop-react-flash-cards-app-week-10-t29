@@ -71,12 +71,14 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
             </button>
           </div>
           <div className="flashcard" onClick={changeCard}>
-            {change ? <p className="emoji">🤔</p> : <p className="emoji">🤯</p>}
-            {change ? (
-              <p className="text">{flashcard.question}</p>
-            ) : (
-              <p className="text">{flashcard.answer}</p>
-            )}
+            <p className={change ? "emoji" : "emoji hidden"}>🤔</p>
+            <p className={change ? "emoji hidden" : "emoji"}>🤯</p>
+            <p className={change ? "text" : "text hidden"}>
+              {flashcard.question}
+            </p>
+            <p className={change ? "text hidden" : "text"}>
+              {flashcard.answer}
+            </p>
           </div>
         </div>
       ) : (

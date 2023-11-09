@@ -171,3 +171,7 @@ section {
   padding: 2rem;
   color: white;
 }
+
+.hidden {
+  display: none;
+}
