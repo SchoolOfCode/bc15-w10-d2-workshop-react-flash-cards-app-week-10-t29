@@ -42,60 +42,61 @@ export default function Flashcard({ flashcard, removeCard, editCard }) {
 
   return (
     <>
-      {" "}
-      {edit ? (
-        <div className="information" style={{ backgroundColor: boxColor }}>
-          <div className="buttonContainer">
-            <button
-              className="editButton"
-              style={{ backgroundColor: boxColor }}
-              onClick={() => editCardContainer()}
-            >
-              Edit
-            </button>
-            <div>
-              <label for="difficuly"></label>
-              <select name="difficulty">
-                <option>Select Difficulty</option>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
-              </select>
-            </div>
-            <button
-              className="deleteButton"
-              style={{ backgroundColor: boxColor }}
-              onClick={() => removeCard(flashcard.id)}
-            >
-              ❌
-            </button>
+      <div
+        className={edit ? "information" : "information hidden"}
+        style={{ backgroundColor: boxColor }}
+      >
+        <div className="buttonContainer">
+          <button
+            className="editButton"
+            style={{ backgroundColor: boxColor }}
+            onClick={() => editCardContainer()}
+          >
+            Edit
+          </button>
+          <div>
+            <label for="difficuly"></label>
+            <select name="difficulty">
+              <option>Select Difficulty</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
           </div>
-          <div className="flashcard" onClick={changeCard}>
-            <p className={change ? "emoji" : "emoji hidden"}>🤔</p>
-            <p className={change ? "emoji hidden" : "emoji"}>🤯</p>
-            <p className={change ? "text" : "text hidden"}>
-              {flashcard.question}
-            </p>
-            <p className={change ? "text hidden" : "text"}>
-              {flashcard.answer}
-            </p>
-          </div>
+          <button
+            className="deleteButton"
+            style={{ backgroundColor: boxColor }}
+            onClick={() => removeCard(flashcard.id)}
+          >
+            ❌
+          </button>
         </div>
-      ) : (
-        <div className="information" style={{ backgroundColor: "#323949" }}>
-          <form className="editForm" onSubmit={clickEditButton}>
-            <label for="question">Question: </label>
-            <input
-              type="text"
-              value={editQuestion}
-              onChange={handleEditQuestion}
-            />
-            <label for="answer">Answer: </label>
-            <input type="text" value={editAnswer} onChange={handleEditAnswer} />
-            <button type="submit">Edit</button>
-          </form>
+        <div className="flashcard" onClick={changeCard}>
+          <p className={change ? "emoji" : "emoji hidden"}>🤔</p>
+          <p className={change ? "emoji hidden" : "emoji"}>🤯</p>
+          <p className={change ? "text" : "text hidden"}>
+            {flashcard.question}
+          </p>
+          <p className={change ? "text hidden" : "text"}>{flashcard.answer}</p>
         </div>
-      )}
+      </div>
+
+      <div
+        className={edit ? "information hidden" : "information"}
+        style={{ backgroundColor: "#323949" }}
+      >
+        <form className="editForm" onSubmit={clickEditButton}>
+          <label for="question">Question: </label>
+          <input
+            type="text"
+            value={editQuestion}
+            onChange={handleEditQuestion}
+          />
+          <label for="answer">Answer: </label>
+          <input type="text" value={editAnswer} onChange={handleEditAnswer} />
+          <button type="submit">Edit</button>
+        </form>
+      </div>
     </>
   );
 }
