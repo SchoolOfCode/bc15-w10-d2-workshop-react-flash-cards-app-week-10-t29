@@ -29,6 +29,16 @@ header {
   color: white;
 }
 
+.editForm {
+  background-color: #232731;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 input {
   background-color: #2f323c;
   border-radius: 5px;
@@ -36,6 +46,7 @@ input {
   margin: 0 20px;
   padding: 5px 0;
   border: 0;
+  color: white;
 }
 
 button {
@@ -74,7 +85,7 @@ section {
   padding-left: 4vw;
 }
 
-.flashcard {
+.information {
   width: 300px;
   height: 200px;
   /* margin: 10px auto; */
@@ -89,6 +100,13 @@ section {
   border-radius: 5px;
 }
 
+.flashcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer {
   place-items: center;
   background-color: #17191f;
@@ -98,26 +116,71 @@ section {
   justify-content: center;
 }
 
+.numFlashcards {
+  place-items: center;
+  background-color: #232731;
+  color: white;
+  padding-bottom: 3px;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
 .footerpic {
   padding: 10px 5px;
+}
+
+.buttonContainer {
+  display: flex;
 }
 
 .deleteButton {
   background-color: #323949;
   color: red;
   border: 0;
-  margin-left: auto;
+}
+
+.editButton {
+  background-color: #323949;
+  border: 0;
+
   height: 20px;
 }
 
-.thinking {
+.emoji {
   height: 80px;
+  font-size: 3rem;
   margin: auto;
   display: flex;
   align-items: center;
- 
 }
 
-.question {
+.text {
   height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.noFlashcard {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.selectionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 4rem;
+  background-color: #232731;
+  color: white;
 }
